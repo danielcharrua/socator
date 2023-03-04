@@ -1,5 +1,4 @@
 FROM alpine:3.14
-MAINTAINER Nilesh
 
 ADD ./tor-socat.sh /
 ADD ./torrc /etc/tor/torrc
@@ -10,6 +9,6 @@ RUN apk update \
 	&& rm -rf /var/cache/apk/* \
 	&& chmod +x /tor-socat.sh
 
-EXPOSE 5000
+EXPOSE ${TCP_LISTEN_PORT}
 
 ENTRYPOINT ["/tor-socat.sh"]

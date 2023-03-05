@@ -26,7 +26,8 @@ Selectively expose the BTC Pay Server payment gateway and API to clearnet using 
 ##### Start the image in foreground:
 
     docker run --rm -ti \
-        -p 5000:5000 \
+        -p 5001:5001 \
+        -e "TCP_LISTEN_PORT=5001" \
         -e "TOR_SITE=zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion" \
         -e "TOR_SITE_PORT=80" \
         --name socator \
